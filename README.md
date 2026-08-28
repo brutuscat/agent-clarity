@@ -39,17 +39,15 @@ Full rule summary and citations: [`references/writing-rules.md`](references/writ
 
 ### Quick Install (npx skills)
 
-The fastest way to install this skill is the [skills CLI](https://skills.sh/) — no clone, no path setup:
+The fastest way to install this skill is the [skills CLI](https://skills.sh/) — no clone, no path setup. Run it from your project root:
 
 ```bash
-npx skills add danyuchn/asd-ste100-skill --global
+npx skills add danyuchn/asd-ste100-skill
 ```
 
-This pulls the skill straight from the GitHub repo and makes it available in every Claude Code project. Leave off `--global` to install it only in the current project.
+This pulls the skill from the GitHub repo and installs it for the current project. The CLI sends anonymous install telemetry (skill name and timestamp, no personal or device information) to help rank skills on the skills.sh leaderboard. Set `DISABLE_TELEMETRY=1` to opt out.
 
-Update later with `npx skills update` (add `-g` to update only globally-installed skills).
-
-One caveat: the CLI installs into the same `~/.claude/skills/` directory that the clone path below uses, so pick one install path and stick with it — mixing both for the same skill can overwrite each other's copies.
+Update later with `npx skills update`.
 
 ### Clone
 
