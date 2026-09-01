@@ -2,41 +2,29 @@
 
 These examples are about execution risk, not style. A rewrite is useful only when it makes a coding agent less likely to take the wrong action.
 
-## Preserve behavior during a refactor
+## Make a decision boundary explicit
 
 **Before**
 
-> Refactor the parser and update tests as needed, but don't change behavior unless you have to.
+> Inspect the failing test and, if the cause is obvious, make the smallest fix; if it is not, report the evidence instead of changing code.
 
 **After**
 
-> Refactor the parser. Preserve current behavior unless the refactor requires a behavior change. Update tests for any behavior you change.
+> Inspect the failing test first. If the cause is obvious, make the smallest fix. If the cause is not obvious, report the evidence and do not change code.
 
-The important part is the invariant: preserve behavior. The exception stays an exception.
+The rewrite keeps the same two branches and makes the modification boundary obvious.
 
-## Make recovery branches explicit
+## Make recovery order explicit
 
 **Before**
 
-> If the cache is stale, clear it and retry, otherwise report the error if it still fails.
+> If the cache is stale, clear it before retrying the request, and if that retry fails report the error instead of retrying again.
 
 **After**
 
-> If the cache is stale, clear it and retry. If that retry fails, report the error. If the cache is not stale, report the error.
+> If the cache is stale, clear it and retry the request. If that retry fails, report the error. Do not retry again.
 
-`Otherwise` could attach to the stale-cache check or to the retry result. The rewrite names both branches.
-
-## Separate investigation from permission to modify
-
-**Before**
-
-> Investigate the flaky test and fix it if the cause is obvious, otherwise report what you find before changing anything.
-
-**After**
-
-> Investigate the flaky test first. If the cause is obvious, fix it. If the cause is not obvious, report what you found and do not change code.
-
-The rewrite makes the modification boundary explicit without adding a new requirement.
+The sequence and stop condition are now hard to attach to the wrong action.
 
 ## Keep scope close to the action
 
@@ -61,6 +49,18 @@ The constraint now sits beside the thing it protects.
 > The migration should keep the old column for now. We may remove it after the backfill.
 
 `Should` and `may` stay unchanged. Turning either one into `must` or `will` would change the instruction rather than clarify it.
+
+## Keep one name for one thing
+
+**Before**
+
+> The worker reads the job from the queue. If the task is cancelled, the processor records the cancellation and stops.
+
+**After**
+
+> The worker reads the job from the queue. If the job is cancelled, the worker records the cancellation and stops.
+
+This rewrite is correct only when `worker`, `processor`, `job`, and `task` really refer to the same two concepts. If that is not known from context, flag the terminology instead of merging it.
 
 ## Do not guess when the source is underspecified
 
