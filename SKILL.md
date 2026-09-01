@@ -24,6 +24,7 @@ It is a clarity pass, not a style guide. Keep natural prose where natural prose 
 - State the actor when ownership is unclear.
 - Split independent instructions when combining them creates more than one execution path.
 - Prefer direct verbs. Remove filler that does not change the instruction.
+- Prefer simple tense when it preserves meaning. Keep compound tense when it carries state, order, or uncertainty.
 - Keep modality exact. `may`, `should`, `must`, `can`, and `will` are different requirements.
 - Keep exceptions, fallback behavior, and failure behavior explicit.
 - Do not rotate synonyms for the same concept inside one instruction set.
@@ -33,7 +34,7 @@ It is a clarity pass, not a style guide. Keep natural prose where natural prose 
 
 ## Avoid Mechanical Rewrites
 
-Do not impose fixed word counts, banned punctuation, forced simple tenses, or a controlled vocabulary.
+Do not impose fixed word counts, banned punctuation, or a controlled vocabulary.
 Do not rewrite text only to make it shorter or flatter.
 Do not remove useful technical detail or human voice when neither creates ambiguity.
 
