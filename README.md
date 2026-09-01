@@ -56,7 +56,9 @@ It checks whether the text makes clear who acts, what happens first, which condi
 
 It preserves technical terms, identifiers, paths, commands, numbers, exceptions, and uncertainty. If the source is genuinely ambiguous, it reports the ambiguity instead of inventing the missing behavior.
 
-There are deliberately no fixed sentence lengths, banned punctuation marks, tense rules, or controlled vocabulary. Those rules can make technical prose more mechanical without making the instruction safer.
+It also prefers simpler tense when the meaning stays the same. Compound tense stays when it carries useful state, order, or uncertainty.
+
+There are deliberately no fixed sentence lengths, banned punctuation marks, or controlled vocabulary. Those rules can make technical prose more mechanical without making the instruction safer.
 
 ## Where it helps
 
