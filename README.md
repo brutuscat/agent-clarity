@@ -4,25 +4,25 @@ A small Agent Skill that rewrites coding-agent instructions so there is one obvi
 
 ## The problem
 
-Coding agents are good at code and still easy to misdirect with vague prose. The failure is usually not grammar. It is a hidden condition, an unclear actor, unstable terminology, or wording that accidentally changes an option into a requirement.
+Coding agents can still misread vague instructions. The problem is usually not grammar. It is a hidden condition, an unclear actor, inconsistent names, or wording that turns an option into a requirement.
 
-Agent Clarity is a final pass for those interfaces. It keeps the technical meaning and removes the parts that make two reasonable agents do different things.
+Agent Clarity is a final pass for those instructions. It preserves technical meaning while removing wording that lets two reasonable agents take different actions.
 
 ## Quick example
 
 Before:
 
-> Refactor the parser and update tests as needed, but don't change behavior unless you have to.
+> Inspect the failing test and, if the cause is obvious, make the smallest fix; if it is not, report the evidence instead of changing code.
 
 After:
 
-> Refactor the parser. Preserve current behavior unless the refactor requires a behavior change. Update tests for any behavior you change.
+> Inspect the failing test first. If the cause is obvious, make the smallest fix. If the cause is not obvious, report the evidence and do not change code.
 
-The rewrite is not trying to sound simpler. It makes the invariant and the exception explicit.
+The rewrite does not add a workflow. It makes the existing decision boundary explicit.
 
 ## Install
 
-With the Agent Skills CLI:
+With the [Agent Skills CLI](https://www.skills.sh/docs/cli):
 
 ```bash
 npx skills add brutuscat/asd-ste100-skill -a codex
@@ -34,7 +34,7 @@ Install it globally if you want it in every Codex project:
 npx skills add brutuscat/asd-ste100-skill -g -a codex
 ```
 
-The same skill also works with other Agent Skills-compatible coding agents. For example, replace `codex` with `claude-code`.
+The same skill works with other Agent Skills-compatible coding agents. For example, replace `codex` with `claude-code`.
 
 ## Use it
 
@@ -48,7 +48,7 @@ $agent-clarity rewrite this handoff so the execution order is unambiguous.
 $agent-clarity tighten this tool description. Do not change its behavior or confidence level.
 ```
 
-Use it after you know what you want to say. It is most useful as a review or rewrite pass, not as a substitute for thinking through the task.
+Use it after you know what you want to say. It works best as a review or rewrite pass, not as a substitute for thinking through the task.
 
 ## What it looks for
 
@@ -62,7 +62,7 @@ There are deliberately no fixed sentence lengths, banned punctuation marks, tens
 
 Use it on `AGENTS.md`, system or developer instructions, subagent handoffs, tool descriptions, plans, validation criteria, recovery instructions, and operational sections of technical documentation.
 
-Do not run normal prose through it by default. A README introduction, design discussion, or explanation can be natural English unless the wording itself creates an execution risk.
+Do not run normal prose through it by default. A README introduction, design discussion, or explanation can stay natural unless the wording itself creates an execution risk.
 
 See [the examples](examples/before-after.md) for common coding-agent failures and minimal rewrites.
 
@@ -79,7 +79,7 @@ This repository started as a fork of [danyuchn/asd-ste100-skill](https://github.
 
 This fork keeps the parts that transfer well to software agents: stable terminology, explicit actors and conditions, direct instructions, preserved modality, and refusal to invent missing facts. It drops the mechanical controlled-English rules because they are not the goal here.
 
-The repository guidance also takes inspiration from [antirez/ds4 `AGENT.md`](https://github.com/antirez/ds4/blob/main/AGENT.md): state the goal, keep the rules small and operational, and make validation part of the instructions rather than adding a long methodology document.
+The repository guidance also takes inspiration from [antirez/ds4 `AGENT.md`](https://github.com/antirez/ds4/blob/main/AGENT.md): state the goal, keep the rules small and operational, and make validation part of the instructions instead of adding a long methodology document.
 
 ## Contributing
 
