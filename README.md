@@ -1,6 +1,6 @@
 # Agent Clarity
 
-A small Agent Skill that rewrites coding-agent instructions so there is one obvious way to execute them.
+A small Agent Skill for rewriting ambiguous coding-agent instructions into clear, executable English.
 
 ## The problem
 
@@ -25,13 +25,13 @@ The rewrite does not add a workflow. It makes the existing decision boundary exp
 With the [Agent Skills CLI](https://www.skills.sh/docs/cli):
 
 ```bash
-npx skills add brutuscat/asd-ste100-skill -a codex
+npx skills add brutuscat/agent-clarity -a codex
 ```
 
 Install it globally if you want it in every Codex project:
 
 ```bash
-npx skills add brutuscat/asd-ste100-skill -g -a codex
+npx skills add brutuscat/agent-clarity -g -a codex
 ```
 
 The same skill works with other Agent Skills-compatible coding agents. For example, replace `codex` with `claude-code`.
@@ -79,7 +79,7 @@ See [the examples](examples/before-after.md) for common coding-agent failures an
 
 This repository started as a fork of [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill). The original applies ideas from [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/) to agent output.
 
-This fork keeps the parts that transfer well to software agents: stable terminology, explicit actors and conditions, direct instructions, preserved modality, and refusal to invent missing facts. It drops the mechanical controlled-English rules because they are not the goal here.
+Agent Clarity keeps the parts that transfer well to software agents: stable terminology, explicit actors and conditions, direct instructions, preserved modality, and refusal to invent missing facts. It drops the mechanical controlled-English rules because they are not the goal here.
 
 The repository guidance also takes inspiration from [antirez/ds4 `AGENT.md`](https://github.com/antirez/ds4/blob/main/AGENT.md): state the goal, keep the rules small and operational, and make validation part of the instructions instead of adding a long methodology document.
 
