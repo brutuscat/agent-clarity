@@ -15,7 +15,7 @@ This repository contains `agent-clarity`, a small Agent Skill for making coding-
 - Write for humans first. Use plain present-tense prose and concrete examples.
 - Prefer an example over a paragraph of theory when both explain the same thing.
 - Every paragraph must earn its place. Delete or combine text that repeats an idea.
-- Do not reintroduce fixed sentence limits, banned punctuation, tense rules, or controlled vocabulary.
+- Do not reintroduce fixed sentence limits, banned punctuation, or controlled vocabulary.
 - Keep one stable term for one concept inside operational instructions, but do not make normal prose mechanical.
 - Preserve identifiers, commands, paths, numbers, modality, and technical terminology exactly when rewriting examples.
 - Do not invent behavior to make an ambiguous example look complete. Show the ambiguity instead.
