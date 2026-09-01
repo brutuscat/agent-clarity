@@ -63,18 +63,18 @@ Do not use it as a general prose polisher, a code formatter, or a complete promp
 
 Before:
 
-> Refactor the parser and update tests as needed, but don't change behavior unless you have to.
+> Inspect the failing test and, if the cause is obvious, make the smallest fix; if it is not, report the evidence instead of changing code.
 
 After:
 
-> Refactor the parser. Preserve current behavior unless the refactor requires a behavior change. Update tests for any behavior you change.
+> Inspect the failing test first. If the cause is obvious, make the smallest fix. If the cause is not obvious, report the evidence and do not change code.
 
 Before:
 
-> If the cache is stale, clear it and retry, otherwise report the error if it still fails.
+> If the cache is stale, clear it before retrying the request, and if that retry fails report the error instead of retrying again.
 
 After:
 
-> If the cache is stale, clear it and retry. If that retry fails, report the error. If the cache is not stale, report the error.
+> If the cache is stale, clear it and retry the request. If that retry fails, report the error. Do not retry again.
 
 More examples are in `examples/before-after.md`.
